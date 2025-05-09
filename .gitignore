@@ -1,0 +1,35 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment directories
+venv/
+env/
+ENV/
+.venv/
+
+# Discard sensitive files (e.g., .env for credentials)
+.env
+
+# MyPy type checker
+.mypy_cache/
+
+# Pytest
+.cache/
+
+# PyCharm project settings
+.idea/
+
+# Logs
+*.log
+
+# Temporary files (for Vim, Emacs, etc.)
+*.swp
+*.swo
+
+# Dependency directories (node_modules for front-end stuff if present)
+node_modules/
+
+# SQLite database (if used)
+*.sqlite3
