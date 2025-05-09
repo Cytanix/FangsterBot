@@ -1,10 +1,12 @@
-import discord
+"""This is the main file for the bot."""
+from typing import Any
 import os
 import traceback
-from discord.ext import commands
-from dotenv import load_dotenv
-from discord.ext.commands import ExtensionError
 import asyncio
+import discord
+from dotenv import load_dotenv
+from discord.ext import commands
+from discord.ext.commands import ExtensionError
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 load_dotenv()
@@ -30,15 +32,18 @@ async def cog_loader(bot_instance: commands.Bot) -> None:
                 print(f'Failed to load cog {cog_name}: {str(e)}')
                 print(traceback.format_exc())
 
-class FangsterBot(commands.Bot):
-    def __init__(self, *args, **kwargs):
+class FangsterBot(commands.Bot): # type: ignore
+    """The main bot class."""
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
-    async def on_ready(self):
+    async def on_ready(self) -> None:
+        """This function is called when the bot is ready."""
         print(f"Logged in as {self.user.name}")
         print("Ready to log all reactions!")
 
-    async def setup_hook(self):
+    async def setup_hook(self) -> None:
+        """This function is called when the bot starts."""
         await cog_loader(self)
 
 bot = FangsterBot(command_prefix="uwu ", intents=intents, message_cache_size=1000)
